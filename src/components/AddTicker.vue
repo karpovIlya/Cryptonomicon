@@ -32,7 +32,6 @@
 <script>
 import UiAddButton from "./UI/UiAddButton.vue";
 import UiAutocomplete from "./UI/UiAutocomplete.vue";
-import { getUrl, getPrice } from "../api";
 
 export default {
   name: "AddTicker",
@@ -60,14 +59,6 @@ export default {
       };
 
       if (!this.isTickerThere(newTicker.name)) {
-        newTicker.eventId = setInterval(() => {
-          getPrice(getUrl(newTicker.name)).then(
-            (data) => (newTicker.price = data)
-          );
-
-          this.$emit("update-price", newTicker);
-        }, 2000);
-
         this.$emit("add-ticker", newTicker);
         this.newTickerValue = "";
       }
