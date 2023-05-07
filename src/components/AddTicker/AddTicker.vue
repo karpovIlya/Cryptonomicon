@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import UiAddButton from "./UI/UiAddButton.vue";
-import UiAutocomplete from "./UI/UiAutocomplete.vue";
+import UiAddButton from "./UiAddButton.vue";
+import UiAutocomplete from "./UiAutocomplete.vue";
 
 export default {
   name: "AddTicker",

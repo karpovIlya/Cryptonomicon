@@ -5,14 +5,7 @@
 
       <hr class="w-full border-t border-gray-600 my-4" v-if="tickers.length" />
 
-      <dl class="grid grid-cols-1 gap-5 sm:grid-cols-3">
-        <ticker-card
-          v-for="ticker in tickers"
-          :key="ticker.name"
-          :ticker-recievd="ticker"
-          @delete="deleteTicker"
-        />
-      </dl>
+      <tickers-list :tickers-list="tickers" @delete="deleteTicker" />
 
       <hr class="w-full border-t border-gray-600 my-4" v-if="tickers.length" />
     </div>
@@ -20,14 +13,14 @@
 </template>
 
 <script>
-import AddTicker from "./components/AddTicker.vue";
-import TickerCard from "./components/TickerCard.vue";
+import AddTicker from "./components/AddTicker/AddTicker.vue";
+import TickersList from "./components/TickersList/TickersList.vue";
 
 export default {
   name: "App",
   components: {
     AddTicker,
-    TickerCard,
+    TickersList,
   },
   data() {
     return {

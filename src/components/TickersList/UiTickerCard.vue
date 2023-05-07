@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import { getUrl, getPrice } from "../api";
+import { getUrl, getPrice } from "../../api";
 
 export default {
-  name: "TickerCard",
+  name: "UiTickerCard",
   props: {
     tickerRecievd: {
       type: Object,
