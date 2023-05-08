@@ -13,7 +13,7 @@
     <div class="w-full border-t border-gray-200"></div>
     <button
       class="flex items-center justify-center font-medium w-full bg-gray-100 px-4 py-4 sm:px-6 text-md text-gray-500 hover:text-gray-600 hover:bg-gray-200 hover:opacity-20 transition-all focus:outline-none"
-      @click="deleteCard"
+      @click.stop="deleteCard"
     >
       <svg
         class="h-5 w-5"
@@ -59,6 +59,7 @@ export default {
     this.ticker.eventId = setInterval(() => {
       getPrice(getUrl(this.ticker.name)).then((price) => {
         if (price) {
+          this.ticker.priceHistory.push(price);
           this.ticker.price = price;
         } else {
           this.ticker.price = "Цена не найдена";

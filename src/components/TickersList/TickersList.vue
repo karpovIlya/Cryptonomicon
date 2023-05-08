@@ -5,6 +5,12 @@
       :key="ticker.name"
       :ticker-recievd="ticker"
       @delete="deleteTicker"
+      @click="() => chooseTicker(ticker)"
+      :class="{
+        'border-4':
+          receivedChoosenTicker !== null &&
+          ticker.name === receivedChoosenTicker.name,
+      }"
     />
   </dl>
 </template>
@@ -22,10 +28,18 @@ export default {
       type: Array,
       default: () => [],
     },
+    receivedChoosenTicker: {
+      type: Object,
+      default: () => {},
+    },
   },
   methods: {
     deleteTicker(tickerToRemove) {
       this.$emit("delete", tickerToRemove);
+    },
+
+    chooseTicker(choosenTicker) {
+      this.$emit("chooseTicker", choosenTicker);
     },
   },
 };

@@ -56,6 +56,7 @@ export default {
       const newTicker = {
         name: this.newTickerValue.toUpperCase(),
         price: "-",
+        priceHistory: [],
       };
 
       if (!this.isTickerThere(newTicker.name)) {
